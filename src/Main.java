@@ -5,6 +5,7 @@ public class Main {
     public static Scanner dato = new Scanner(System.in);
     public static Scanner datoString =new Scanner(System.in);
     public static ArrayList<Especialidad> especialidades = new ArrayList<Especialidad>();
+    public static ArrayList<Materia> materias = new ArrayList<Materia>();
     public static void main(String[] args) {
         int opc;
         do{
@@ -20,7 +21,7 @@ public class Main {
                     //altaCatedratico();
                     break;
                 case 4:
-                    //altaMateria();
+                    altaMateria();
                     break;
                 case 5:
                     //altaGrupo();
@@ -62,9 +63,24 @@ public class Main {
         especialidades.add(new Especialidad(id,nombre));
     }
 
+    public static void altaMateria(){
+        int id;
+        String nombre;
+        System.out.println("id:");
+        id=dato.nextInt();
+        System.out.println("Nombre:");
+        nombre=datoString.nextLine();
+        materias.add(new Materia(id,nombre));
+    }
+
     public static void listarBD(){
         for(int i=0; i<especialidades.size(); i++){
             System.out.println(especialidades.get(i).toString());
         }
+
+        for(int i=0; i<materias.size(); i++){
+            System.out.println(materias.get(i).toString());
+        }
+
     }
 }
