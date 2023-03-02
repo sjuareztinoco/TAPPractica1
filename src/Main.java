@@ -6,6 +6,8 @@ public class Main {
     public static Scanner datoString =new Scanner(System.in);
     public static ArrayList<Especialidad> especialidades = new ArrayList<Especialidad>();
 
+    public static ArrayList<Catedratico> catedraticos = new ArrayList<Catedratico>();
+
     public static ArrayList<Materia> materias = new ArrayList<Materia>();
     public static ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
 
@@ -21,7 +23,7 @@ public class Main {
                     altaAlumno();
                     break;
                 case 3:
-                    //altaCatedratico();
+                    altaCatedratico();
                     break;
                 case 4:
                     altaMateria();
@@ -65,6 +67,15 @@ public class Main {
         nombre=datoString.nextLine();
         especialidades.add(new Especialidad(id,nombre));
     }
+
+    public static void altaCatedratico(){
+        String RFC,nombre;
+        System.out.println("RFC:");
+        RFC=datoString.nextLine();
+        System.out.println("Nombre:");
+        nombre=datoString.nextLine();
+        catedraticos.add(new Catedratico(RFC, nombre));
+    }
     public static void altaAlumno(){
         int numControl;
         String nombre;
@@ -76,7 +87,8 @@ public class Main {
         nombre = datoString.nextLine();
         System.out.println("id especialidad");
         idEspecialidad = dato.nextInt();
-        especialidades.get(idEspecialidad);
+        alumnos.add(new Alumno(numControl, nombre,especialidades.get(idEspecialidad-1)));
+
     }
 
     public static void altaMateria(){
@@ -102,6 +114,11 @@ public class Main {
 
         for (int i = 0; i < alumnos.size(); i++) {
             System.out.println(alumnos.get(i).toString());
+        }
+
+
+        for(int i=0; i<catedraticos.size(); i++){
+            System.out.println(catedraticos.get(i).toString());
         }
 
     }
